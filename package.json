@@ -1,6 +1,6 @@
 {
   "name": "@fridgerator/r-script",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Module for running R scripts from node",
   "main": "./dist/bundle.js",
   "repository": "https://github.com/fridgerator/r-script",
