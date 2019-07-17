@@ -1,0 +1,29 @@
+{
+  "name": "@fridgerator/r-script",
+  "version": "0.1.0",
+  "description": "Module for running R scripts from node",
+  "main": "./dist/bundle.js",
+  "repository": "https://github.com/fridgerator/r-script",
+  "author": "Nick Franken <shnick@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "test": "mocha"
+  },
+  "files": [
+    "dist",
+    "src",
+    "index.d.ts"
+  ],
+  "devDependencies": {
+    "@types/node": "^12.6.6",
+    "chai": "^4.2.0",
+    "copy-webpack-plugin": "^5.0.3",
+    "mocha": "^6.1.4",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6"
+  },
+  "types": "index.d.ts"
+}
