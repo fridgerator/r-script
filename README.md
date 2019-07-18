@@ -36,4 +36,9 @@ r.data(2, 3)
 r.call()
   .then(response => response === 5) // true
   .catch(e => console.log('error : ', e))
+
+// OR call the script async
+
+let result = r.callSync() // could raise an exception
+result === 5 // true
 ```
