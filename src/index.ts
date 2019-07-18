@@ -14,10 +14,11 @@ export class R {
 
   constructor(scriptPath: string, opts?: Options) {
     let _opts = opts || {}
+    let _env = _opts.env || process.env
     this.rData = {}
     this.path = scriptPath
     this.options = Object.assign({}, {
-      env: {DIRNAME: __dirname},
+      env: Object.assign({}, {DIRNAME: __dirname}, _env),
       encoding: 'utf8'
     }, _opts)
     this.idCounter = 0
@@ -39,15 +40,12 @@ export class R {
     return new Promise((resolve: any, reject: any) => {
       let opts = _opts || {}
       this.setInputEnv(opts)
-      console.log('args : ', this.args)
-      console.log('opts : ', this.options)
-      console.log('call : ', 'Rscript', this.args, this.options)
       let child = spawn('Rscript', this.args, this.options)
       let body = ""
       child.stderr.on('data', d => {
         let msg = d.toString()
         if (msg.includes('Warning message')) {
-          console.log(msg)
+          console.warn(msg)
           return
         }
         reject(msg)
@@ -71,7 +69,7 @@ export class R {
     if (child.stderr) {
       let msg = child.stderr.toString()
       if (msg.includes('Warning message')) {
-        console.log(msg)
+        console.warn(msg)
       } else {
         throw msg
       }

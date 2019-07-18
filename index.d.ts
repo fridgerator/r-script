@@ -4,7 +4,7 @@ declare module '@fridgerator/r-script' {
   }
 
   export class R {
-    constructor(path: string, env?: Options);
+    constructor(path: string, opts?: Options);
     data (...args: any[]): R;
     call (_opts?: Options): Promise<object>;
     callSync (_opts?: Options): object | undefined;

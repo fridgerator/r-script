@@ -25,9 +25,10 @@ In node:
 ```javascript
 const { R } = require('@fridgerator/r-script')
 
-// optionally pass an environment object if Rscript is not in your system PATH
-// `process.env` will be used as default
-let r = new R('./add.R', {PATH: '/bin:/location/to/R/bin'})
+let r = new R('./add.R')
+
+// optionally pass an options object used in child_process spawn calls
+let r = new R('./add.R', {env: {PATH: '/bin:/location/to/R/bin'}})
 
 // data is converted to a list variable `input` in the R script
 r.data(2, 3)
