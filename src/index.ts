@@ -14,13 +14,13 @@ export class R {
 
   constructor(scriptPath: string, opts?: Options) {
     let _opts = opts || {}
-    let _env = _opts.env || process.env
     this.rData = {}
     this.path = scriptPath
     this.options = Object.assign({}, {
-      env: Object.assign({}, {DIRNAME: __dirname}, _env),
       encoding: 'utf8'
     }, _opts)
+    if (!this.options.env) this.options.env = process.env
+    if (!this.options.env.DIRNAME) this.options.env.DIRNAME = __dirname
     this.idCounter = 0
     this.args = ['--vanilla', this.options.env.DIRNAME + '/R/launch.R']
   }
