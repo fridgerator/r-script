@@ -23,7 +23,7 @@ export class R {
     if (!this.options.env) this.options.env = process.env
     if (!this.options.env.DIRNAME) this.options.env.DIRNAME = __dirname
     this.idCounter = 0
-    this.args = ['--vanilla', this.options.env.DIRNAME + '/R/launch.R']
+    this.args = ['--vanilla', path.join(this.options.env.DIRNAME, 'R', 'launch.R')]
   }
 
   private setInputEnv (opts: Options): void {
