@@ -19,6 +19,7 @@ export class R {
     this.options = Object.assign({}, {
       encoding: 'utf8'
     }, _opts)
+    if (process.platform === 'win32') this.options.shell = true
     if (!this.options.env) this.options.env = process.env
     if (!this.options.env.DIRNAME) this.options.env.DIRNAME = __dirname
     this.idCounter = 0
